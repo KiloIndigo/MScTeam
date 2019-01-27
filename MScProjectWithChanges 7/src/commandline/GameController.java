@@ -45,6 +45,7 @@ public class GameController {
 	 * draw return a boolean, in which case there is no winningCard method called
 	 */
 	public void playRoundOne() {
+		System.out.println("Game Start");
 		
 		while (!theModel.isGameOver()) {
 			if (theModel.chooseFirstActivePlayer() == true) {
@@ -101,7 +102,7 @@ public class GameController {
 			 gameOver = true;
 			 System.err.println("gameover");
 			 // show the GameStatistics
-			System.out.println(sql.getGameStatistics());
+			
 			System.out.println(sql.getAllPlayersScores());
 			 
 		}	

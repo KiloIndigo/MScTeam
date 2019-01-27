@@ -558,67 +558,10 @@ public class GameLogic {
 		return humanPlayerOutGame;
 	}
 
-	public void drawRound(Player p) {
-		/*
-		 * System.out.println(players.get(0).getCurrentCards());
-		 * System.out.println(players.get(1).getCurrentCards());
-		 * System.out.println(players.get(2).getCurrentCards());
-		 * System.out.println(players.get(3).getCurrentCards());
-		 * System.out.println(players.get(4).getCurrentCards());
-		 * System.out.println(" XXXXXXXXXXXXXXX ");
-		 */
+	
 
-		for (int i = 0; i < players.size(); i++) {
-			players.get(i).loseCard();
 
-		}
-		/*
-		 * System.out.println(players.get(0).getCurrentCards());
-		 * System.out.println(players.get(1).getCurrentCards());
-		 * System.out.println(players.get(2).getCurrentCards());
-		 * System.out.println(players.get(3).getCurrentCards());
-		 * System.out.println(players.get(4).getCurrentCards());
-		 * System.out.println(" XXXXXXXXXXXXXXX ");
-		 */
 
-		for (int i = 0; i < players.size(); i++) {
-
-			communalPile.add(players.get(i).viewTopCard());
-		}
-		System.out.println(players.get(0).getCurrentCards());
-		System.out.println(players.get(1).getCurrentCards());
-		System.out.println(players.get(2).getCurrentCards());
-		System.out.println(players.get(3).getCurrentCards());
-		System.out.println(players.get(4).getCurrentCards());
-		System.out.println(" YYYYYYYYYYYYY ");
-
-		System.out.println(communalPile);
-
-	}
-
-	public Player iLoseNextActivePlayer(ArrayList<Player> players) {
-
-		System.out.println("Ap1    " + activePlayer);
-		int i = players.indexOf(activePlayer);
-		i++;
-		return players.get(i);
-
-	}
-
-	public Player ISelectCategoryAgain(ArrayList<Player> players) {
-		return p;
-
-	}
-
-	// method isn't working right for setting active player as AI4 knocked out and
-	// then went to AI 1 argh
-
-	// maybe change method to zero is null? Hate using null though...
-
-	// must be something to do with how I am assigning the next active player???
-
-	// AAHHHHH it's because when I remove the player at i then it will skip the next
-	// one as player get i will be meaningless AHHH
 	public void checkIfPlayersOutTheGame() {
 		for (int i = 0; i < players.size(); i++) {
 			int x = i;
@@ -653,16 +596,10 @@ public class GameLogic {
 			
 			}
 		}
-//		for (int i = 0; i < players.size(); i++) {
-//			System.out.println("This is being called in the CHECK IF PLAYERS OUT THE GAME METHOD !!!!!!!");
-//			System.out.println("Current players " + players.get(i).getName());
-//			System.out.println("this player should have this many cards " + players.get(i).countCurrentCards());
-//			System.out.println("top card " + players.get(i).viewTopCard());
-//		}
+
 
 		checkIfGameHasBeenWon();
-		// need to then check if it is human player, in which case not wanting to show
-		// top card
+	
 
 	}
 //		9) round winner=active player. keep track of round winner.
@@ -671,10 +608,6 @@ public class GameLogic {
 		System.out.println("This should be player who last selected category " + activePlayer.getName());
 		System.out.println("this should be the winner of the last round " + winningPlayer.getName());
 		System.out.println(players.size());
-		// okay need to check if winning player is the same as made last selection if
-		// not it moves onto the next person
-		// this is not best way of doing it argh
-		// oh wait am I comparing strings
 		if (winningPlayer.getName() == activePlayer.getName() && winningPlayer.getName().equals("Human")) {
 			this.humanIsActivePlayer = true;
 
@@ -712,12 +645,7 @@ public class GameLogic {
 				}
 			}
 
-			// so the above is to test whether the person who chose the category lost
 
-//			this.activePlayer=playersToShuffle.get(0);
-//			System.out.println("The active player is " + "'" + activePlayer.getName() + "'" );
-//			this.humanIsActivePlayer=false;
-			// System.out.println("f" + isActivePlayer);
 
 		}
 		return humanIsActivePlayer;
@@ -754,26 +682,5 @@ public class GameLogic {
 		return isDraw;
 
 	}
-
-//	public void setSQLRoundData() {
-	// have a number of variables in methods to keep track of stuff and send it here
-
-	// will have to pass in an integer for gameId hmmmm also what is the isHuman
-	// boolean?
-	// sql.se
-//		sql.setRoundDataToSQL(GameID, RoundID, RoundWiner, isDraw, isHuman);
-//
-//	}
-//
-//	public void setSQLGameData() {
-//		// have a number of variables in methods to keep track of stuff and send it here
-//		sql.setGameDataToSQL(GameID, AmountOfRound, GameWiner, NumOfDraw, isHuman);
-//
-//	}
-
 }
 
-// 				
-
-//				11) Next round : active player selects category again , winner of round gets all of the cards (including those in the communal pile)
-// 				12) if another draw see line 25.}
